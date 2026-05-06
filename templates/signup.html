@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Create Account</h2>
+
+    <form id="signupform">
+
+        <input type="text"
+               id="name"
+               placeholder="Name"
+               required>
+
+        <input type="email"
+               id="email"
+               placeholder="Email"
+               required>
+
+        <input type="password"
+               id="password"
+               placeholder="Password"
+               required>
+
+        <button type="submit">
+            Signup
+        </button>
+
+    </form>
+
+    <p id="error"></p>
+
+    <a href="/login">
+        Already have account?
+    </a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
