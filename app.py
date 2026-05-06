@@ -1,16 +1,19 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
+import os 
+
 
 app = Flask(__name__)
 app.secret_key = "secret123"
 
 # MYSQL CONNECTION
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="kullu@200514",
-    database="simple_local"
+    host=os.getenv("MYSQLHOST"),
+    user=os.getenv("MYSQLUSER"),
+    password=os.getenv("MYSQLPASSWORD"),
+    database=os.getenv("MYSQLDATABASE"),
+    port=os.getenv("MYSQLPORT")
 )
 
 cursor = db.cursor(dictionary=True)
